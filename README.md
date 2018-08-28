@@ -24,3 +24,6 @@ python main.py
 然后输入要获取对象的洛谷 uid，按下 `Enter` 即可。
 
 **注意：如果获取对象开启了完全隐私保护，此脚本无法正常工作。**
+
+## Badges
+可以配合[该项目](https://github.com/Anguei/Luogu-Difficulties-Badge-Generator)生成 badges 代码
