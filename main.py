@@ -47,8 +47,8 @@ for topic in topics:
 		print topic, "Error!"
 		continue
 	
-	f.write(v.text)
-	v = v.text.decode('utf-8').encode(type)
+	#f.write(v.text)
+	v = v.text#.decode('utf-8').encode(type)
 
 	soup = BeautifulSoup(v, 'lxml')
 	try:
