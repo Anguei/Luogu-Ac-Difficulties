@@ -2,9 +2,10 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-import sys
+import sys, platform
 import warnings
 warnings.filterwarnings("ignore")
+system = platform.system()
 
 yellow, green, blue, purple, bluedark, gray, difficulties = [], [], [], [], [], [], []
 colors = { '1r': 0, '2o': 0, '3y': 0, '4g': 0, '5b': 0, '6p': 0, '7d': 0, '8g': 0 }
@@ -79,7 +80,8 @@ for topic in topics:
         print topic, "Didn't allowed!" # 无权查看的题目
     
     finished += 1
-    os.system('title U' + user + ': ' + str(finished) + '/' + str(len(topics)))
+    if system == "Windows":
+        os.system('title U' + user + ': ' + str(finished) + '/' + str(len(topics)))
 
 print('------------------------------------')
 
