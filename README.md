@@ -3,7 +3,7 @@
 
 **请不要滥用爬虫，以免浪费洛谷流量。若被封 IP，后果自负。**
 
-## 语言版本：**Python 2**
+**请正确选择您 Python 语言版本对应程序运行。Python 2 用户请使用 main.py，Python 3 用户请使用 main3.py**
 
 ## 依赖的库：
 + requests
@@ -17,11 +17,10 @@ pip install requests
 pip install bs4
 pip install lxml
 ```
-**（请确保是给 Python 2 安装的）**
 
 ## 使用方法：在 cmd 当中运行（不建议使用 IDLE）
 ```batch
-python main.py
+python main(3).py
 ```
 然后输入要获取对象的洛谷 uid，按下 `Enter` 即可。
 
