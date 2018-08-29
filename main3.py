@@ -118,50 +118,114 @@ for i in difficulties:
 		colors['8g'] += 1
 print('------------------------------------')
 
-print('Red: ', colors['1r'])
-print('Orange: ', colors['2o'])
-print('Yellow: ', colors['3y'])
-print('Green: ', colors['4g'])
-print('Blue: ', colors['5b'])
-print('Purple: ', colors['6p'])
-print('Bluedark: ', colors['7d'])
-print('Gray: ', colors['8g'])
+print('Red:', colors['1r'])
+print('Orange:', colors['2o'])
+print('Yellow:', colors['3y'])
+print('Green:', colors['4g'])
+print('Blue:', colors['5b'])
+print('Purple:', colors['6p'])
+print('Bluedark:', colors['7d'])
+print('Gray:', colors['8g'])
 
 print('------------------------------------')
 
-print('\n', str(colors['3y']), 'Yellow:')
+print('\n' + str(colors['3y']), 'Yellow:')
 for i in range(len(yellow)):
-	print(yellow[i],) 
-	if (i + 1) % 10 == 0:
-		print('\n',)
-print('\n', str(colors['4g']), 'Green:')
+	print(yellow[i], end = ' \n'[(i + 1) % 10 == 0])
+print('\n' + str(colors['4g']), 'Green:')
 for i in range(len(green)):
-	print(green[i],)
-	if (i + 1) % 10 == 0:
-		print('\n',)
-print('\n', str(colors['5b']), 'Blue:')
+	print(green[i], end = ' \n'[(i + 1) % 10 == 0])
+print('\n' + str(colors['5b']), 'Blue:')
 for i in range(len(blue)):
-	print(blue[i], )
-	if (i + 1) % 10 == 0:
-		print('\n',)
-print('\n', str(colors['6p']), 'Purple:')
+	print(blue[i], end = ' \n'[(i + 1) % 10 == 0])
+print('\n' + str(colors['6p']), 'Purple:')
 for i in range(len(purple)):
-	print(purple[i], )
-	if (i + 1) % 10 == 0:
-		print('\n',)
-print('\n', str(colors['7d']), 'Bluedark:')
+	print(purple[i], end = ' \n'[(i + 1) % 10 == 0])
+print('\n' + str(colors['7d']), 'Bluedark:')
 for i in range(len(bluedark)):
-	print(bluedark[i], )
-	if (i + 1) % 10 == 0:
-		print('\n',)
-print('\n', str(colors['8g']), 'Gray:')
+	print(bluedark[i], end = ' \n'[(i + 1) % 10 == 0])
+print('\n' + str(colors['8g']), 'Gray:')
 for i in range(len(gray)):
-	print(gray[i], )
-	if (i + 1) % 10 == 0:
-		print('\n',)
+	print(gray[i], end = ' \n'[(i + 1) % 10 == 0])
 print("\n")
 
 print('------------------------------------')
 
 print('Yellow+: ', yellowPlus)
 print('Green+: ', greenPlus)
+
+
+
+'''
+#include <cstdio>
+#include <cctype>
+#include <cstring>
+#include <string>
+#include <iostream>
+
+int cnt = 0;
+
+std::string subPrefix(std::string s, int len)
+{
+    std::string res = "";
+    for (int i = 0; i < len; ++i)   
+        res += std::string(1, s[i]);
+    return res;
+}
+
+bool isNum(std::string s)
+{
+    for (auto i : s)
+        if (!isdigit(i))
+            return false;
+    return true;
+}
+
+void printColor(const std::string &s, const std::string &color, std::string &rgb)
+{
+	if (color == "Yellow:")
+		rgb = "f1c40f";
+	if (color == "Green:")
+		rgb = "5eb95e";
+	if (color == "Blue:")
+		rgb = "3498db";
+	if (color == "Purple:")
+		rgb = "9b59b6";
+	if (color == "Bluedark:")
+		rgb = "34495e";
+	if (color == "Gray:")
+		rgb = "bbbbbb";
+	printf("\n\n![%s](https://img.shields.io/badge/%s-%s-%s.svg)\n\n> ", s.c_str(), s.c_str(), color.substr(0, color.size() - 1).c_str(), rgb.c_str());
+	cnt = 0;
+	printf("|  |  |  |  |  |  |  |  |  |  |\n| :----------- | :----------- | :----------- | :----------- | :----------- | :----------- | :----------- | :----------- | :----------- | :----------- |\n| ");
+}
+
+int main()
+{
+#ifdef yyfLocal 
+	freopen("data.txt", "r", stdin);
+	freopen("result.txt", "w", stdout);
+#endif
+    std::string s, rgb, color;
+    while (std::cin >> s)
+    {
+        if (isNum(s))
+        {
+            std::cin >> color;
+            printColor(s, color, rgb);
+            continue;
+        }
+        int preLen = 1;
+        if (s[0] == 'U')
+            preLen = 3;
+        if (s[0] == 'C' || s[0] == 'S' || s[0] == 'A')
+            preLen = 2;
+        const char *prefix = subPrefix(s, preLen).c_str();
+        const char *suffix = s.substr(preLen).c_str();
+		printf("[![%s](https://img.shields.io/badge/%s-%s-%s.svg)](https://www.luogu.org/problemnew/show/%s) $\\ $|", s.c_str(), prefix, suffix, rgb.c_str(), s.c_str());
+		++cnt;
+		if (cnt % 8 == 0) // 一行最多几个 badge
+			printf("\n| ");
+    }
+}
+'''
