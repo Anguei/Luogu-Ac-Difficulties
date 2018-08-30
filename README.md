@@ -11,7 +11,7 @@
 + lxml
 
 ## 使用前提：
-请确保你安装了以上三个库。安装方法：在命令行输入
+请确保你安装了以上三个库。安装方法：**配置好环境变量之后**在命令行输入
 ```batch
 pip install requests
 pip install bs4
